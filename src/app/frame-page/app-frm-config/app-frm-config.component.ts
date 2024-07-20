@@ -1,4 +1,3 @@
-import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 import { KeyValue } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
@@ -9,7 +8,9 @@ import { customcontroltext } from 'src/app/common-controls/custom-control-text/c
 import { stringhelper } from 'src/app/common-controls/shared/string-helper';
 import { BehaviorFrameMessage, SupplicateDetails } from 'src/app/Message/behaviorFrame';
 import { ApproachpartService } from 'src/services/approachpart.service';
-import { BasicInfoComponent } from '../basic-info/basic-info.component';
+import { FrameConfigDetailComponent } from './app-frm-config-details/app-frm-config-details.component';
+import { take } from 'rxjs';
+import { CustomDialogMessageComponent, CustomDialogService } from 'src/app/common-controls/costum-dialog-message/costum-dialog-message.component';
 
 @Component({
   selector: 'app-frame-config',
@@ -24,21 +25,14 @@ export class FrameConfigComponent implements OnInit {
   frameList:BehaviorFrame[]=[];
   message : string = '';
   public dDownList: KeyValue<string, string>[] = [];
-  constructor(public dialog: MatDialog,private fs: ApproachpartService) {
+  constructor(public dialog: MatDialog, private fs: ApproachpartService,
+    private dlog : CustomDialogService
+  ) {
     this.form = new BehaviorFrameFormGroup();
   }
   ngOnInit(): void {
     this.getFrame();
     this.getDropdownData();
-  }
-
- logInvalidControls(form : BehaviorFrameFormGroup): void {
-    Object.keys(form.controls).forEach(key => {
-      const control = form.get(key);
-      if (control?.invalid) {
-        console.log(`The control ${key} is invalid. Errors: `, control.errors);
-      }
-    });
   }
   getDropdownData(){
     this.err = undefined
@@ -111,28 +105,35 @@ export class FrameConfigComponent implements OnInit {
     bfra.updatedDate = stringhelper.formatDateToDatetimeLocal(bfra.updatedDate)
     this.form.updateValueAndValidity();
     this.form.patchValue(bfra)
-    this.dialog.open(BasicInfoComponent, {
-      width: '450px',
+    const dialogReference = this.dialog.open(FrameConfigDetailComponent, {
+      width: '1500px',
       height: 'auto',
-      data: this.form.value
-  })
+      data: {form : this.form.value,
+        parentDDownList : this.dDownList},
+      disableClose : true
+    })
+    dialogReference.afterClosed().pipe(take(1)).subscribe((res: any) => {
+      console.log(res)
+      this.form.patchValue(res.form)
+      this.btnSubmit(res.btnEvent);
+    });
     return bfra.isSelected ? true : false;
   }
   btnSubmit(event : string) : boolean {
     let load = true;
     if(this.form.invalid && event !='deleteBFrame' ){
-      this.logInvalidControls(this.form)
       this.form.markAllAsTouched();
     }
     else{
         this.fs.getBehaviorFrame(this.form.value, 'cougarapi', event).subscribe(ack =>{
           this.message = ack.message;
+          this.dlog.ShowMessageInfo(this.message)
           load = false
           this.getFrame();
         },
       error => {
         this.err = error
-        alert('Sebmit error :' + error.message);
+        this.dlog.ShowMessageError(error.message)
       })
     }
     
@@ -140,9 +141,6 @@ export class FrameConfigComponent implements OnInit {
   }
   getKeyDate(key : any){
     console.log(key)
-  }
-  isSelectedRow(row: any): boolean {
-    return ObjectUtil.deepCompare(this.frameList,row);
   }
 }
 
@@ -171,6 +169,7 @@ export class BehaviorFrameFormGroup extends FormGroup{
   }
   get frameNumberFC(): customcontroltext { return this.controls['frameNumber'] as customcontroltext; }
   get frameFC(): customcontroltext { return this.controls['frame'] as customcontroltext; }
+  get frameGuidFC(): customcontroltext { return this.controls['frameGuid'] as customcontroltext; }
   get frameDescriptionFC(): customcontroltext { return this.controls['frameDescription'] as customcontroltext; }
   get frameTypeFC(): customcontroltext { return this.controls['frameType'] as customcontroltext; }
   get frameGroupFC(): customcontroltext { return this.controls['frameGroup'] as customcontroltext; }
@@ -216,52 +215,4 @@ export class ResponseInfo{
   status ? : number
   count ? : number
   message ? : string
-}
-
-
-export class ObjectUtil {
-  public static deepCompare(obj1: any, obj2: any): boolean {
-    if (obj1 == null && obj2 == null) return true;
-    if (obj1 == null || obj2 == null) return false;
-
-    // Loop through properties in object 1
-    for (const prop in obj1) {
-      if (obj1.hasOwnProperty(prop)) {
-        // Check property exists on both objects
-        if (obj1.hasOwnProperty(prop) !== obj2.hasOnProperty(prop)) {
-          return false;
-        }
-
-        switch (typeof (obj1[prop])) {
-          // Deep compare objects
-          case 'object':
-            if (!ObjectUtil.deepCompare(obj1[prop], obj2[prop])) {
-              return false;
-            }
-            break;
-          // Compare function code
-          case 'function':
-            if (typeof (obj2[prop]) === 'undefined' || (prop != 'compare' && obj1[prop].toString() != obj2[prop].toString())) {
-              return false;
-            }
-            break;
-          // Compare values
-          default:
-            if (obj1[prop] != obj2[prop]) {
-              return false;
-            }
-        }
-      }
-
-    }
-    // Check object 2 for any extra properties
-    for (const p in obj2) {
-      if (!!obj1) {
-        if (typeof (obj1[p]) == 'undefined' && (typeof (obj2[p]) != 'undefined')) {
-          return false;
-        }
-      }
-    }
-    return true;
-  }
 }

@@ -5,7 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { customControlModule } from 'src/app/common-controls/custom-contol-module';
+import { customControlModule } from 'src/app/common-controls/shared/custom-control-module';
 
 
 @NgModule({

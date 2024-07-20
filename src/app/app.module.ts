@@ -12,7 +12,7 @@ import { FooterComponent } from './master-root/footer/footer.component';
 import { NotifComponent } from './master-root/ahead/notif/notif.component';
 import { UserInfoComponent } from './master-root/ahead/user-info/user-info.component';
 import { NotFoundComponent } from './generic/not-found/not-found.component';
-import { customControlModule } from './common-controls/custom-contol-module';
+import { customControlModule } from './common-controls/shared/custom-control-module';
 
 
 @NgModule({

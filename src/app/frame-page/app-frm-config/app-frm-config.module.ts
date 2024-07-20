@@ -5,13 +5,16 @@ import { FrameConfigComponent } from './app-frm-config.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { customControlModule } from 'src/app/common-controls/custom-contol-module';
 import {CdkDrag, CdkDropList} from '@angular/cdk/drag-drop';
+import { FrameConfigDetailComponent } from './app-frm-config-details/app-frm-config-details.component';
+import { customControlModule } from 'src/app/common-controls/shared/custom-control-module';
+import { CustomDialogService } from 'src/app/common-controls/costum-dialog-message/costum-dialog-message.component';
 
 
 @NgModule({
   declarations: [
-    FrameConfigComponent
+    FrameConfigComponent,
+    FrameConfigDetailComponent
   ],
   imports: [
     MatTreeModule,
@@ -23,6 +26,7 @@ import {CdkDrag, CdkDropList} from '@angular/cdk/drag-drop';
   ],
   providers: [
     CdkDropList,
-     CdkDrag]
+     CdkDrag,CustomDialogService]
+     
 })
 export class FrameConfigModule { }

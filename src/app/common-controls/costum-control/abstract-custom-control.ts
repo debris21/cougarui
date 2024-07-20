@@ -7,7 +7,7 @@ export abstract class AbstractCustomControl extends FormControl {
     super(formState, validatorOrOpts, asyncValidator);
     this.label = label ;
   }
-  getErrorMessage() {
+  getErrorMessage() : string[] {
     let messages: string[] = [];
     for (let errorName in this.errors){
       switch (errorName) {

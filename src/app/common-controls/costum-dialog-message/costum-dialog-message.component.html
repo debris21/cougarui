@@ -1,0 +1,30 @@
+<div class="bgLavender" *ngIf="isInfo" style="background: var(--bg1);">
+    <span style="color: var(--CornflowerBlue);">{{data.message}}</span>
+    <div style="text-align: right;">
+        <button (click)="btnOk(false)" class="bgPowderBlue">Ok</button>
+    </div>
+</div>
+
+
+<div class="bgLavender" *ngIf="isError" style="padding: 10px; border: 1px solid red;background: var(--bg1);">
+    <span style="color: var(--CornflowerBlue);">{{data.message}}</span>
+    <div style="text-align: right;">
+        <button (click)="btnOk(true)" class="bgPowderBlue">Ok</button>
+    </div>
+</div>
+
+<div class="bgLavender" *ngIf="isConfirmation" style="padding: 10px; border: 1px solid red;background: var(--bg1);">
+    <span style="color: var(--CornflowerBlue);">{{data.message}}</span>
+    <div style="text-align: right;">
+        <button (click)="btnOk(true)" class="bgPowderBlue">
+            <img src="../../../assets/Loading Circle Gradient.svg" alt="Loading" style="height: 15px; animation: rotate 2s linear infinite;">
+            Ok
+        </button>
+        <button (click)="btnOk(false)" class="bgCoral">
+            <img src="../../../assets/Loading Circle Gradient.svg" alt="Loading" style="height: 15px; animation: rotate 2s linear infinite;">
+            Cancel
+        </button>
+    </div>
+</div>
+
+

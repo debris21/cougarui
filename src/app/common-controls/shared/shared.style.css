@@ -77,4 +77,5 @@ select.error:focus{
     text-overflow: ellipsis;
     max-width: 150px;
     white-space: nowrap; 
+    color: var(--CornflowerBlue);
 }
