@@ -1,0 +1,43 @@
+<div class="nyxa-navi">
+    <div class="padding-5p flex-centers-all">
+        <div class="iconholder"></div>
+        <input type="text" class="width-100p padding-5p">
+    </div>
+    <div *ngIf="err" style="color: red;">{{err.message}}</div>
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree" style="width: auto;" *ngIf="!err">
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+            <button class="nav-btn" (click)="navigate(node.frame)">
+                <div class="svg-holder flex-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.0" style="width: 15px; height:15px" viewBox="0 0 230.000000 219.000000" preserveAspectRatio="xMidYMid meet">
+                        <g transform="translate(0.000000,219.000000) scale(0.100000,-0.100000)" fill="#FFFFFF" stroke="none">
+                            <path d="M594 2180 c-12 -4 -31 -21 -43 -36 l-21 -27 0 -723 0 -724 60 0 60 0 0 695 0 695 400 0 399 0 3 -276 c3 -259 4 -276 22 -290 16 -11 71 -14 278 -14 l258 0 0 -405 0 -405 65 0 65 0 0 451 0 451 -49 46 c-27 26 -149 153 -271 282 -122 129 -235 247 -251 263 l-29 27 -463 -1 c-254 0 -472 -4 -483 -9z m1326 -572 c0 -5 -76 -8 -170 -8 l-170 0 0 183 1 182 169 -175 c93 -96 169 -178 170 -182z"/>
+                            <path d="M217 1819 c-15 -11 -31 -37 -37 -57 -8 -25 -10 -218 -8 -599 3 -514 4 -564 20 -579 16 -16 20 -16 63 7 l45 24 0 552 0 553 40 0 c67 0 99 49 64 98 -13 19 -24 22 -88 22 -59 0 -78 -4 -99 -21z"/>
+                            <path d="M856 1244 c-22 -21 -20 -67 2 -87 17 -15 65 -17 484 -17 438 0 466 1 481 18 21 23 22 66 1 86 -14 14 -71 16 -484 16 -413 0 -470 -2 -484 -16z"/>
+                            <path d="M862 934 c-26 -18 -29 -60 -8 -90 14 -18 30 -19 386 -19 356 0 372 1 386 19 21 30 18 72 -8 90 -34 24 -722 24 -756 0z"/>
+                            <path d="M615 510 l-200 -5 -161 -91 c-174 -98 -254 -150 -254 -164 0 -14 46 -42 246 -149 l191 -101 741 0 742 0 0 260 0 260 -552 -2 c-304 -1 -643 -5 -753 -8z m-179 -417 c-6 -6 -234 116 -263 141 -17 15 -22 27 -17 39 4 10 66 48 143 86 l136 69 3 -166 c1 -90 1 -167 -2 -169z"/>
+                            <path d="M2022 263 l3 -258 113 0 c112 0 114 0 138 28 24 28 24 31 24 228 l0 201 -29 29 c-29 29 -31 29 -140 29 l-111 0 2 -257z"/>
+                        </g>
+                    </svg>
+                </div>
+                {{node.frameDescription}}
+            </button>
+        </mat-tree-node>
+        <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+            <div class="mat-tree-node">
+              <button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.frameDescription" class="nav-btn" [class.active]="treeControl.isExpanded(node)" role="group">
+                <div class="svg-holder flex-center" [class.element]="treeControl.isExpanded(node)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="svg" version="1.0" viewBox="0 0 1330.000000 824.000000" preserveAspectRatio="xMidYMid meet">
+                        <g transform="translate(0.000000,824.000000) scale(0.100000,-0.100000)" stroke="none">
+                            <path d="M1255 8155 c-105 -13 -209 -37 -262 -61 -17 -8 -36 -14 -41 -14 -17 0 -194 -86 -235 -114 -21 -14 -40 -26 -42 -26 -27 0 -212 -161 -311 -271 -36 -40 -124 -163 -145 -201 -46 -86 -99 -199 -105 -224 -4 -16 -10 -34 -15 -39 -7 -9 -18 -51 -48 -175 -5 -19 -15 -93 -22 -163 -22 -226 20 -495 108 -687 41 -90 59 -127 74 -150 10 -14 38 -59 64 -100 40 -63 473 -501 2748 -2777 2576 -2577 2705 -2704 2806 -2771 97 -63 267 -152 293 -152 5 0 24 -6 41 -14 98 -42 306 -76 464 -76 81 0 307 25 324 36 6 3 34 12 62 19 132 33 275 99 412 190 33 22 74 51 90 64 17 14 1224 1218 2683 2676 2280 2278 2792 2796 2792 2828 0 3 13 25 29 49 37 55 102 194 129 278 44 134 52 172 68 314 14 134 14 158 0 292 -16 141 -22 171 -69 319 -27 86 -106 245 -170 343 -44 66 -215 250 -292 313 -57 46 -200 136 -260 163 -33 15 -68 31 -78 37 -17 9 -110 39 -227 72 -30 9 -118 21 -196 28 -120 11 -160 10 -285 -4 -187 -21 -347 -66 -469 -132 -14 -7 -45 -24 -70 -37 -64 -34 -95 -55 -177 -117 -40 -30 -1020 -1003 -2179 -2163 -1160 -1159 -2113 -2108 -2119 -2108 -5 0 -959 949 -2118 2108 -1159 1159 -2140 2133 -2179 2162 -78 60 -110 81 -178 118 -25 13 -56 30 -70 37 -214 116 -532 166 -825 130z"/>
+                        </g>
+                    </svg>
+                </div>
+                {{node.frameDescription}}
+              </button>
+            </div>
+            <div [class.example-tree-invisible]="treeControl.isExpanded(node)" class="childstree">
+                <ng-container matTreeNodeOutlet></ng-container>
+            </div>
+        </mat-nested-tree-node>
+    </mat-tree>
+</div>

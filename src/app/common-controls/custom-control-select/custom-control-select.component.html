@@ -1,0 +1,7 @@
+<app-abstract-custom-control [frmC]="formContr">
+    <select type="text" #input [formControl]="formContr" [ngClass]="{'error': formContr.touched && formContr.errors}">
+        <option [value]="a.key" *ngFor="let a of dDownList ">
+            {{a.value}}
+        </option>
+    </select>
+</app-abstract-custom-control>

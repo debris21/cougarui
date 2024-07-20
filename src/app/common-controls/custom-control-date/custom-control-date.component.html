@@ -1,0 +1,3 @@
+<app-abstract-custom-control [frmC]="formContr">
+    <input type="datetime-local" #input [formControl]="formContr"  [ngClass]="{'error': formContr.touched && formContr.errors}" (keydown)="preventTyping($event)">
+</app-abstract-custom-control>

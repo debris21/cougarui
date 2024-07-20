@@ -1,0 +1,80 @@
+
+
+select {
+    outline :inherit;
+    width: 100%;
+    border: 1px solid rgb(201, 197, 197, 0.5);
+    background: transparent;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(100, 149, 237, 0.5);
+    font-size: 20px;
+    color: var(--CornflowerBlue);
+}
+option{
+    padding: 10px;
+    font-size: 16px;
+}
+input {
+    outline :inherit;
+    width: 100%;
+    border: 1px solid rgb(201, 197, 197, 0.5);
+    background: transparent;
+    padding: 15px 10px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(100, 149, 237, 0.5);
+    font-size: 20px;
+    color: var(--CornflowerBlue);
+}
+input:focus{
+    box-shadow: 0 0 10px rgba(100, 149, 237, 0.5);
+    border: 1px double rgb(100, 149, 237);
+}
+input:hover{
+    box-shadow: 0 0 10px rgba(100, 149, 237, 0.5);
+    border: 1px double rgb(100, 149, 237);
+}
+input:disabled{
+    box-shadow: 0 0 0 rgba(100, 149, 237, 0.5);
+    opacity: .4;
+}
+input:disabled:hover{
+    box-shadow: 0 0 0 rgba(100, 149, 237, 0.5);
+    opacity: .4;
+}
+
+input.error{
+    box-shadow: 0 0 10px rgb(253, 0, 0);
+    color: red;
+}
+input.error:hover{
+    box-shadow: 0 0 10px rgb(253, 0, 0);
+}
+input.error:focus{
+    box-shadow: 0 0 10px rgb(253, 0, 0);
+}
+
+select.error{
+    box-shadow: 0 0 10px rgb(253, 0, 0);
+    color: red;
+}
+select.error:hover{
+    box-shadow: 0 0 10px rgb(253, 0, 0);
+}
+select.error:focus{
+    box-shadow: 0 0 10px rgb(253, 0, 0);
+}
+.error{
+    color: red;
+}
+.cap-tion{
+    position: absolute;
+    top: -4px;
+    left: 15px;
+    background: var(--bg1);
+    padding: 0 4px;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    white-space: nowrap; 
+}

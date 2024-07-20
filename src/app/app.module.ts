@@ -9,10 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AheadComponent } from './master-root/ahead/ahead.component';
 import { BodyComponent } from './master-root/body/body.component';
 import { FooterComponent } from './master-root/footer/footer.component';
-import { navsComponent } from './master-root/navs/navs.component';
 import { NotifComponent } from './master-root/ahead/notif/notif.component';
 import { UserInfoComponent } from './master-root/ahead/user-info/user-info.component';
 import { NotFoundComponent } from './generic/not-found/not-found.component';
+import { customControlModule } from './common-controls/custom-contol-module';
 
 
 @NgModule({
@@ -21,7 +21,6 @@ import { NotFoundComponent } from './generic/not-found/not-found.component';
     AheadComponent,
     BodyComponent,
     FooterComponent,
-    navsComponent,
     NotifComponent,
     UserInfoComponent,
     NotFoundComponent,
@@ -34,6 +33,7 @@ import { NotFoundComponent } from './generic/not-found/not-found.component';
     MatTreeModule,
     MatDialogModule,
     BrowserAnimationsModule,
+    customControlModule
   ],
   providers: [],
   bootstrap: [AppComponent]

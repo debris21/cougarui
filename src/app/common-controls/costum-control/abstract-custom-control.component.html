@@ -1,0 +1,12 @@
+
+<div style="padding: 5px; position: relative;">
+  <div class="cap-tion">
+    <small  [ngClass]="{'error': frmC?.touched && frmC?.errors}">{{frmC?.label}}</small>
+  </div>
+  <ng-content></ng-content>
+  <div *ngIf="frmC?.errors && frmC?.touched" style="color: red;">
+    <small *ngFor="let error of frmC?.getErrorMessage()">
+      {{ error  }}
+    </small>
+  </div>
+</div>

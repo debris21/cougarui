@@ -1,0 +1,105 @@
+
+<div *ngIf="false">
+
+
+<br>
+<input type="checkbox"> Checkbox<br>
+<input type="color"> color<br>
+<input type="date"> date<br>
+<input type="datetime-local"> datetime local <br>
+<input type="email"> email<br>
+<input type="file"> file<br>
+<input type="hidden"> hidden <br>
+<input type="image"> image<br>
+<input type="month"> month<br>
+<input type="number">  number<br>
+<input type="password"> password <br>
+<input type="radio"> radio<br>
+<input type="range"> range<br>
+<input type="reset"> reset<br>
+<input type="search"> search<br>
+<input type="submit"> submit<br>
+<input type="tel"> telephone <br>
+  text<br>
+<input type="time"> time<br>
+<input type="url"> url<br>
+<span class="calendar-icon">&#x1F5D3;</span>
+
+
+
+<div class="calendar">
+  <div class="cal-month-box">
+    <h1>January </h1>
+  </div>
+  <div class="calendar">
+    <div class="calendar-day">Sun</div>
+    <div class="calendar-day">Mon</div>
+    <div class="calendar-day">Tue</div>
+    <div class="calendar-day">Wed</div>
+    <div class="calendar-day">Thu</div>
+    <div class="calendar-day">Fri</div>
+    <div class="calendar-day">Sat</div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+    <div class="calendar-box"></div>
+  </div>
+</div>
+
+</div>
+
+<!-- <div *ngIf="false">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <input type="text" [formControl]="myFormControl"/>
+  <label for="name">Name:</label>
+  <input id="name" formControlName="name">
+
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email"> 
+    <div *ngIf="myForm.get('email')?.touched" style="color: red;">
+      <small>{{ getEmailErrorMessage() }}</small>
+    </div>    
+  </div>
+
+  <label for="age">Age:</label>
+  <input id="age" formControlName="age">
+  
+  <label for="customControl">Custom Control:</label>
+  <input id="customControl" formControlName="customControl">
+
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+</form>
+</div> -->
+
+
+<div style="display: flex;"> 
+  <app-custom-control-text [formContr]="form.nameFC" class="myclass"></app-custom-control-text>
+  <app-custom-control-text [formContr]="form.addressFC" class="myclass"></app-custom-control-text>
+  <app-custom-control-text [formContr]="form1.frameNumberFC" class="myclass"></app-custom-control-text>
+  <app-custom-control-text [formContr]="form1.frameNumberFC" class="myclass"></app-custom-control-text>
+</div>

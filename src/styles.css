@@ -4,9 +4,50 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+:root {
+    --bg1:          #ffffff;
+    --col0ch:       #000000;
+    --Olive :       #808000;
+    --SteelBlue:    #4682B4;
+    --LightSteelBlue:#B0C4DE;
+    --CornflowerBlue:#6495ED;
+    --LavenderBlush	:#FFF0F5;
+    --PowderBlue:   #B0E0E6;
+    --PaleGreen	:   #98FB98;
+    --Lavender	:   #E6E6FA;
+    --Coral	:       #FF7F50;
+}
 body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: var(--bg1);
+    color: var(--CornflowerBlue);
+    transition: 1000ms;
+}
+
+body.dark{
+    --bg1: #1d1d1d;
+    --CornflowerBlue :#B0C4DE;
+}
+
+.bgPowderBlue{
+    background: PowderBlue;
+    color: #08cde7;
+}
+
+.bgPaleGreen{
+    background: PaleGreen;
+    color: #066406;
+}
+
+.bgLavender{
+    background: Lavender;
+    color: #2c2cff;
+}
+
+.bgCoral{
+    background: Coral;
+    color: #af3305;
 }
 
 section{
@@ -42,6 +83,8 @@ button{
     border: 0;
     cursor: pointer;
     font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
 }
 .a-head{
     height: 50px;
@@ -207,9 +250,6 @@ button {
     top: 0;
     left: 0;
 }
-app-ahead{
-    z-index: 1;
-}
 .box-date{
     padding: 10px;
     border: 1px solid #ffffff;
@@ -266,15 +306,16 @@ table{
 }
 thead{
     padding: 5px;
-    background: #413737;
-    color: #ffffff;
+    background: #dada;
 }
 td{
     padding: 5px;
 }
 tr:hover{
-    background: #4e4d4d;
-    color: #ffffff;
+    background: #dada;
+}
+tr.selected{
+    background: #dada;
 }
 
 table {
@@ -283,10 +324,16 @@ table {
   }
   
 table tr td {
-white-space: nowrap; 
-overflow: hidden;  
-text-overflow: ellipsis;
-max-width: 150px; 
+    white-space: nowrap; 
+    overflow: hidden;  
+    text-overflow: ellipsis;
+    max-width: 150px; 
+    }
+table tr th {
+    white-space: nowrap; 
+    overflow: hidden;  
+    text-overflow: ellipsis;
+    max-width: 150px; 
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

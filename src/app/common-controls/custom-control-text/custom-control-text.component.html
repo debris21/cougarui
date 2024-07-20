@@ -1,0 +1,3 @@
+<app-abstract-custom-control [frmC]="formContr">
+    <input type="text" #input [formControl]="formContr"  [ngClass]="{'error': formContr.touched && formContr.errors}">
+</app-abstract-custom-control>
