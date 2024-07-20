@@ -1,1 +1,292 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+section{
+    position: relative;
+    height: calc(100vh - 80px);
+    overflow: auto;
+}
+
+.flex-centers-all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.width-100p{
+    width: 100%;
+}
+
+.height-100p{
+    height: 100%;
+}
+.objfit_cover{
+    object-fit: cover;
+}
+
+.padding-5p{
+    padding: 5px;
+}
+
+button{
+    background: transparent;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+    font-size: 14px;
+}
+.a-head{
+    height: 50px;
+    width: 100vw;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-bottom:1px solid rgb(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    overflow: visible;
+}
+.icons-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.icon-content{
+    width: 50px;
+    height: 50px;
+    background: red;
+}
+.box-a{
+    position: relative;
+    width: 100%;
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    z-index: 2;
+}
+
+.box-notif-a{
+    position: absolute;
+    background: #3c3b3b;
+    width: 350px;
+    height: 600px;
+    top: -5px;
+    right: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(101, 177, 239, 0.5);
+}
+
+nav{
+    position: fixed;
+    width: 60px;
+    left: 0;
+    top: 50px;
+    height: calc(100vh - 80px);
+    background: #667eea;
+    border-right: 1px solid rgb(255, 255, 255, 0.5);
+}
+.nav-body{
+    position: fixed;
+    width: 300px;
+    left: 60px;
+    top: 50px;
+    height: calc(100vh - 80px);
+    background: rgb(15, 15, 16, 0.3);
+    overflow-y: auto;
+    overflow-x: auto;
+    border-right: 1px solid rgb(255, 255, 255, 0.5);
+}
+
+  .nav-body ~ .pages{
+    width: calc(100vw - 360px);
+    position: relative;
+    left: 360px;
+  }
+  app-footer{
+    background: red;
+    height: 10px;
+  }
+
+  .mat-tree {
+    background: transparent !important;
+    color: #ffffff !important;
+}
+
+.childstree {
+    position: relative;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    transition: max-height 300ms ease-in-out;
+}
+
+    .childstree.example-tree-invisible {
+        max-height: 1000px;
+    }
+
+.example-tree ul,
+.example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+.mat-tree-node {
+    max-height: 30px !important;
+}
+
+.example-tree .mat-nested-tree-node div[role=group] {
+    padding-left: 30px;
+}
+
+.svg {
+    transform: rotate(-90deg);
+    transition: 300ms ease-in-out;
+    fill: #ffffff;
+    width: 15px;
+    height: 15px;
+}
+
+.element .svg {
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.mat-tree-node {
+    min-height: 30px !important;
+    max-height: 30px !important;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.svg-holder {
+    width: 30px;
+    height: 30px;
+}
+
+button {
+    text-align: left;
+    transition: 200ms;
+}
+
+    button:hover {
+        opacity: 0.7;
+    }
+
+    button:active {
+        opacity: 1;
+    }
+
+.active {
+    opacity: 1;
+}
+.nyxa-navi{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+.tri-indicator{
+    height: 30px;
+    width: 30px;
+    background: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+app-ahead{
+    z-index: 1;
+}
+.box-date{
+    padding: 10px;
+    border: 1px solid #ffffff;
+    outline: transparent;
+    width: 300px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.calendar-icon {
+    color: white; /* Set color to white */
+  }
+.gen-control-box{
+    padding: 5px;
+}
+.calendar{
+    border: 1px solid #a8a4a4;
+    padding: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    background: #fcb913;
+    width: 400px;
+    margin: 5px;
+}
+.calendar-day{
+    padding: 2px;
+    margin: 2px;
+    flex: calc(14.2857% - 4px);
+    max-width: calc(14.2857% - 4px);
+    min-height: 30px;
+}
+.calendar-box{
+    border: 1px solid #686464;
+    padding: 2px;
+    background: #ffffff;
+    margin: 2px;
+    flex: calc(14.2857% - 4px);
+    max-width: calc(14.2857% - 4px);
+    min-height: 60px;
+}
+
+
+.myclass {
+    flex : 1
+}
+.form-box{
+    padding: 5px;
+    margin: 10px auto;
+    max-width: 1000px;
+}
+
+
+table{
+    width: 100%;
+}
+thead{
+    padding: 5px;
+    background: #413737;
+    color: #ffffff;
+}
+td{
+    padding: 5px;
+}
+tr:hover{
+    background: #4e4d4d;
+    color: #ffffff;
+}
+
+table {
+    table-layout: fixed; 
+    width: 100%;
+  }
+  
+table tr td {
+white-space: nowrap; 
+overflow: hidden;  
+text-overflow: ellipsis;
+max-width: 150px; 
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
