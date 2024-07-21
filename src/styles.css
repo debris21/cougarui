@@ -6,6 +6,7 @@
 }
 :root {
     --bg1:          #ffffff;
+    --bg2:          rgb(0, 0, 0, 0.6);
     --col0ch:       #000000;
     --Olive :       #808000;
     --SteelBlue:    #4682B4;
@@ -28,6 +29,7 @@ body {
 body.dark{
     --bg1: #1d1d1d;
     --CornflowerBlue :#B0C4DE;
+    --bg2:          rgb(255, 255, 255, 0.6);
 }
 
 .bgPowderBlue{
@@ -336,8 +338,12 @@ table tr th {
     text-overflow: ellipsis;
     max-width: 150px; 
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.dialog-header{
+    position: relative;
+    background: var(--bg2);
+    height: 35px;
+    margin: 0 0 20px 0;
+    display: flex;
+    justify-content: flex-end;
+    color: var(--bg1);
+}

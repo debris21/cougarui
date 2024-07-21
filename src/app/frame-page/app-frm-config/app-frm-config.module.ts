@@ -9,6 +9,7 @@ import {CdkDrag, CdkDropList} from '@angular/cdk/drag-drop';
 import { FrameConfigDetailComponent } from './app-frm-config-details/app-frm-config-details.component';
 import { customControlModule } from 'src/app/common-controls/shared/custom-control-module';
 import { CustomDialogService } from 'src/app/common-controls/costum-dialog-message/costum-dialog-message.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { CustomDialogService } from 'src/app/common-controls/costum-dialog-messa
     ReactiveFormsModule,
     CommonModule,
     customControlModule,
+    MatIconModule
   ],
   providers: [
     CdkDropList,

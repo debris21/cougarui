@@ -1,4 +1,9 @@
 
+<div  class="dialog-header">
+  <button mat-icon-button aria-label="Close" (click)="closeDialog()">
+    <img src="../../../assets/Close.svg" alt="Loading" style="height: 15px;">
+  </button>
+</div>
 <div class="form-box">
     <div style="display: flex;"> 
       <app-custom-control-text [formContr]="form.frameNumberFC" class="myclass"></app-custom-control-text>
@@ -38,6 +43,7 @@
       <img src="../../../assets/Loading Circle Gradient.svg" alt="Loading" style="height: 15px; animation: rotate 2s linear infinite;">
       Delete
     </button>
+
   </div>
   <style>
     

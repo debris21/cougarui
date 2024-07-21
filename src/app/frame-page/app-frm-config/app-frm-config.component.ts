@@ -50,6 +50,35 @@ export class FrameConfigComponent implements OnInit {
       this.err = error
     })
   }
+
+  mapFrames(frames : BehaviorFrame[]) : BehaviorFrame[]{
+    let frameList = frames?.map((itm: BehaviorFrame) => {
+      return {
+        frameNumber: itm.frameNumber,
+        frame: itm.frame || '',
+        frameDescription: itm.frameDescription || '',
+        frameType: itm.frameType || '',
+        frameGroup: itm.frameGroup || '',
+        ordering: itm.ordering || 0,
+        frameParentGuid: itm.frameParentGuid || '',
+        frameIcon: itm.frameIcon || '',
+        frameIcon2: itm.frameIcon2 || '', 
+        framePath: itm.framePath || '',
+        createdDate: stringhelper.formatDateToDatetimeLocal(itm.createdDate), 
+        createdBy: itm.createdBy || '',
+        updatedDate: stringhelper.formatDateToDatetimeLocal(itm.updatedDate),
+        updatedBy: itm.updatedBy || '',
+        status: itm.status || 1, 
+        parentDesc: itm.parentDesc,
+        frameGuid : itm.frameGuid,
+        list: itm,
+        createdDateDispl:stringhelper.FormatDateTime(itm.createdDate) ,
+        updatedDateDispl: stringhelper.FormatDateTime(itm.updatedDate),
+        isSelected: itm.isSelected
+      };
+    });
+    return frameList
+  }
   getFrame(){
     this.err = undefined
     this.bfm = {
@@ -58,31 +87,7 @@ export class FrameConfigComponent implements OnInit {
       }
     }
     this.fs.getBehaviorFrame(this.bfm, 'cougarapi', 'getframe').subscribe(ack =>{
-      this.frameList = ack.res.behF_DList.map((itm: BehaviorFrame) => {
-        return {
-          frameNumber: itm.frameNumber,
-          frame: itm.frame || '',
-          frameDescription: itm.frameDescription || '',
-          frameType: itm.frameType || '',
-          frameGroup: itm.frameGroup || '',
-          ordering: itm.ordering || 0,
-          frameParentGuid: itm.frameParentGuid || '',
-          frameIcon: itm.frameIcon || '',
-          frameIcon2: itm.frameIcon2 || '', 
-          framePath: itm.framePath || '',
-          createdDate: stringhelper.formatDateToDatetimeLocal(itm.createdDate), 
-          createdBy: itm.createdBy || '',
-          updatedDate: stringhelper.formatDateToDatetimeLocal(itm.updatedDate),
-          updatedBy: itm.updatedBy || '',
-          status: itm.status || 1, 
-          parentDesc: itm.parentDesc,
-          frameGuid : itm.frameGuid,
-          list: itm,
-          createdDateDispl:stringhelper.FormatDateTime(itm.createdDate) ,
-          updatedDateDispl: stringhelper.FormatDateTime(itm.updatedDate),
-          isSelected: itm.isSelected
-        };
-      });
+      this.frameList = this.mapFrames(ack.res.frameList);
       this.frameList[0].isSelected = true
     },
     error => {
@@ -113,9 +118,10 @@ export class FrameConfigComponent implements OnInit {
       disableClose : true
     })
     dialogReference.afterClosed().pipe(take(1)).subscribe((res: any) => {
-      console.log(res)
-      this.form.patchValue(res.form)
-      this.btnSubmit(res.btnEvent);
+      if(res){
+        this.form.patchValue(res?.form)
+        this.btnSubmit(res?.btnEvent);
+      }
     });
     return bfra.isSelected ? true : false;
   }
@@ -126,10 +132,14 @@ export class FrameConfigComponent implements OnInit {
     }
     else{
         this.fs.getBehaviorFrame(this.form.value, 'cougarapi', event).subscribe(ack =>{
-          this.message = ack.message;
-          this.dlog.ShowMessageInfo(this.message)
+          this.message = ack?.res?.rInfo?.message;
+          this.dlog.ShowMessageInfo(this.message);
+          if(ack.res.frameList){
+            this.frameList = this.mapFrames(ack.res.frameList);
+            this.frameList[0].isSelected = true;
+          }
           load = false
-          this.getFrame();
+          //this.getFrame();
         },
       error => {
         this.err = error

@@ -25,7 +25,7 @@ export class navsComponent {
       }
     }
       this.fs.getBehaviorFrame(this.bfm, 'cougarapi', 'getBehavior_Frame').subscribe(ack =>{
-      this.msg1 = ack.res.behF_DList;
+      this.msg1 = ack.res.frameList;
       this.dataSource.data = this.msg1[0].children
     },
     error => {

@@ -9,6 +9,8 @@ import { customselectcontrol } from '../custom-control-select/custom-control-sel
 import { navsComponent } from 'src/app/master-root/navs/navs.component';
 import { customdatecontrol } from '../custom-control-date/custom-control-date.component';
 import { CustomDialogMessageComponent, CustomDialogService } from '../costum-dialog-message/costum-dialog-message.component';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { CustomDialogMessageComponent, CustomDialogService } from '../costum-dia
     MatDialogModule,
     ReactiveFormsModule,
     CommonModule,
+    MatIconModule
   ],
   exports : [customcontrolComponent,
     customtextcontrol,

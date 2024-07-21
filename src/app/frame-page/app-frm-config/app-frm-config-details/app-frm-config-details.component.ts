@@ -61,5 +61,8 @@ export class FrameConfigDetailComponent
           }
           return null;
         };
-      }
+    }
+    closeDialog(){
+        this.dialogRef.close();
+    }
 }

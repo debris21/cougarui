@@ -22,6 +22,9 @@ export class CustomDialogMessageComponent
             this.dialog.closeAll();
         }
     }
+    closeDialog(){
+        this.dialogRef.close();
+    }
 }
 @Injectable({
     providedIn: 'root'
