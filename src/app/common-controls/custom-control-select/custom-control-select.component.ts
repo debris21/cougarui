@@ -4,8 +4,7 @@ import { KeyValue } from "@angular/common";
 
 @Component({
     selector: 'app-custom-control-select',
-    templateUrl: './custom-control-select.component.html',
-    styleUrls : ['../shared/shared.style.css']
+    templateUrl: './custom-control-select.component.html'
 })
 export class customselectcontrol {
     @Input() formContr : customcontrolselect;

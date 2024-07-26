@@ -11,6 +11,7 @@ import { ApproachpartService } from 'src/services/approachpart.service';
 import { FrameConfigDetailComponent } from './app-frm-config-details/app-frm-config-details.component';
 import { take } from 'rxjs';
 import { CustomDialogMessageComponent, CustomDialogService } from 'src/app/common-controls/costum-dialog-message/costum-dialog-message.component';
+import { PageEvent, MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-frame-config',
@@ -18,6 +19,8 @@ import { CustomDialogMessageComponent, CustomDialogService } from 'src/app/commo
 })
 export class FrameConfigComponent implements OnInit {
   @Output() sendFrameS: EventEmitter<any> = new EventEmitter();
+  @Output() loadData: EventEmitter<any> = new EventEmitter();
+  dataGridEntity : any;
   public form : BehaviorFrameFormGroup;
   err : any;
   sd: SupplicateDetails | undefined;
@@ -33,6 +36,13 @@ export class FrameConfigComponent implements OnInit {
   ngOnInit(): void {
     this.getFrame();
     this.getDropdownData();
+    this.getMatIcons();
+  }
+  public gridPageChange(paginator: any) {
+    this.dataGridEntity.pageIdx = paginator.pageIndex;
+    this.dataGridEntity.pageSize = paginator.pageSize;
+    //this.filter.setGridPaging(this.dataGridEntity.pageIdx);
+    this.loadData.emit(this.dataGridEntity);
   }
   getDropdownData(){
     this.err = undefined
@@ -45,6 +55,25 @@ export class FrameConfigComponent implements OnInit {
     
     this.fs.getBehaviorFrame(this.bfm, 'dropdown', 'getframe').subscribe(ack =>{
       this.dDownList = ack;
+    },
+    error => {
+      this.err = error
+    })
+  }
+
+  matIcons : any
+  getMatIcons(){
+    this.err = undefined
+    this.bfm = {
+      supDet: this.sd ={
+        name : 'asas'
+      }
+    }
+
+    
+    this.fs.getBehaviorFrame(this.bfm, 'cougarapi', 'getmaticon').subscribe(ack =>{
+      console.log(ack)
+      this.matIcons = ack;
     },
     error => {
       this.err = error
@@ -194,7 +223,7 @@ export class BehaviorFrameFormGroup extends FormGroup{
   get updatedByFC(): customcontroltext { return this.controls['updatedBy'] as customcontroltext; }
 }
 export class BehaviorFrame {
-  frameNumber: number = 0;
+  frameNumber ?: string;
   frame: string = '';
   frameGuid: string = '';
   frameDescription: string = '';
@@ -225,4 +254,17 @@ export class ResponseInfo{
   status ? : number
   count ? : number
   message ? : string
+}
+
+
+export interface MaterialIconDTO {
+  id?: number;
+  iconTag?: string;
+  iconDescription?: string;
+  category?: string;
+  createdDate?: string;  // ISO 8601 string format for DateTime
+  createdBy?: string;
+  updatedDate?: string | null;  // ISO 8601 string or null
+  updatedBy?: string | null;  // string or null
+  status?: number;
 }

@@ -5,8 +5,7 @@ import { AbstractCustomControl, ConcreteCustomControl } from "./abstract-custom-
 
 @Component({
     selector: 'app-abstract-custom-control',
-    templateUrl: './abstract-custom-control.component.html',
-    styleUrls : ['../shared/shared.style.css']
+    templateUrl: './abstract-custom-control.component.html'
 })
 export class customcontrolComponent {
   @Input() frmC? : AbstractCustomControl

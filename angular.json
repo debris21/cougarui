@@ -25,6 +25,8 @@
             "styles": [
               "src/custom-theme.scss",
               "src/deeppurpleamber.css",
+              "src/assets/styles/actions.css",
+              "src/assets/styles/form-control.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -93,6 +95,8 @@
             ],
             "styles": [
               "src/deeppurpleamber.css",
+              "src/assets/styles/actions.css",
+              "src/assets/styles/form-control.css",
               "src/styles.css"
             ],
             "scripts": []

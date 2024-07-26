@@ -3,8 +3,7 @@ import { customcontroltext } from "./custom-control-text.control";
 
 @Component({
     selector: 'app-custom-control-text',
-    templateUrl: './custom-control-text.component.html',
-    styleUrls : ['../shared/shared.style.css']
+    templateUrl: './custom-control-text.component.html'
 })
 export class customtextcontrol {
     @Input() formContr : customcontroltext;

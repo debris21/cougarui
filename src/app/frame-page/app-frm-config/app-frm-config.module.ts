@@ -10,6 +10,7 @@ import { FrameConfigDetailComponent } from './app-frm-config-details/app-frm-con
 import { customControlModule } from 'src/app/common-controls/shared/custom-control-module';
 import { CustomDialogService } from 'src/app/common-controls/costum-dialog-message/costum-dialog-message.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator'
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     CommonModule,
     customControlModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ],
   providers: [
     CdkDropList,

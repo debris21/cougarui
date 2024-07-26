@@ -1,3 +1,4 @@
+
 <div style="padding: 10px;">
   <table>
     <thead>
@@ -13,7 +14,7 @@
       </tr>
     </thead>
     <tbody *ngFor="let a of frameList">
-      <tr style="cursor: pointer;" (click)="sendFrame(a)" onkeypress="getKeyDate($events)" [ngClass]="{'selected': a.isSelected }">
+      <tr style="cursor: pointer;" (dblclick)="sendFrame(a)" onkeypress="getKeyDate($events)" [ngClass]="{'selected': a.isSelected }">
         <td style="padding: 5px;"> {{ a.frame}} </td>
         <td style="padding: 5px;"> {{ a.frameDescription}} </td>
         <td style="padding: 5px;"> {{ a.parentDesc}} </td>
@@ -25,4 +26,6 @@
       </tr>
     </tbody>
   </table>
+  <div style="width: 100%; height: 300000px;background: red;"></div>
 </div>
+

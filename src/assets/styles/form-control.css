@@ -1,4 +1,26 @@
+.bgPowderBlue{
+    background: PowderBlue;
+    color: #08cde7;
+}
+button{
+    background: none;
+    border: none;
+}
 
+.bgPaleGreen{
+    background: PaleGreen;
+    color: #066406;
+}
+
+.bgLavender{
+    background: Lavender;
+    color: #2c2cff;
+}
+
+.bgCoral{
+    background: Coral;
+    color: #af3305;
+}
 
 select {
     outline :inherit;
@@ -78,4 +100,17 @@ select.error:focus{
     max-width: 150px;
     white-space: nowrap; 
     color: var(--CornflowerBlue);
+}
+
+.width-100{
+    width: 100%;
+}
+.nav-btn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--CornflowerBlue);
+    font-size: 14px;
+    cursor: pointer;
 }

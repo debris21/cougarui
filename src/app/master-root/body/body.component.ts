@@ -7,4 +7,7 @@ import { Component, OnInit } from '@angular/core';
 export class BodyComponent implements OnInit {
   ngOnInit(): void {
   }
+  getLink(){
+    
+  }
 }

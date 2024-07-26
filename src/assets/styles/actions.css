@@ -1,0 +1,147 @@
+section{
+    position: relative;
+    height: calc(100vh - 80px);
+    overflow: auto;
+}
+
+.flex-centers-all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.height-100p{
+    height: 100%;
+}
+.objfit_cover{
+    object-fit: cover;
+}
+
+.padding-5p{
+    padding: 5px;
+}
+
+.mat-tree {
+    background: transparent !important;
+    color: #ffffff !important;
+}
+
+.childstree {
+    position: relative;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    transition: max-height 300ms ease-in-out;
+}
+
+    .childstree.example-tree-invisible {
+        max-height: 1000px;
+    }
+
+.example-tree ul,
+.example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+.mat-tree-node {
+    max-height: 30px !important;
+}
+
+.example-tree .mat-nested-tree-node div[role=group] {
+    padding-left: 30px;
+}
+
+.element .svg {
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.mat-tree-node {
+    min-height: 30px !important;
+    max-height: 30px !important;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.svg-holder {
+    width: 30px;
+    height: 30px;
+}
+
+.active {
+    opacity: 1;
+}
+.nyxa-navi{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+.myclass {
+    flex : 1
+}
+
+table{
+    width: 100%;
+}
+
+thead{
+    padding: 5px;
+    background: #dada;
+}
+td{
+    padding: 5px;
+}
+tr:hover{
+    background: #dada;
+}
+tr.selected{
+    background: #dada;
+}
+
+table {
+    table-layout: fixed; 
+    width: 100%;
+  }
+  
+table tr td {
+    white-space: nowrap; 
+    overflow: hidden;  
+    text-overflow: ellipsis;
+    max-width: 150px; 
+    }
+table tr th {
+    white-space: nowrap; 
+    overflow: hidden;  
+    text-overflow: ellipsis;
+    max-width: 150px; 
+}
+.dialog-header{
+    position: relative;
+    background: var(--bg2);
+    height: 35px;
+    margin: 0 0 20px 0;
+    display: flex;
+    justify-content: flex-end;
+    color: var(--bg1);
+}
+.nav-body{
+    height: 100vh;
+    width: 300px;
+    background: darkslategray;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-body ~ .pages{
+    left: 300px;
+    height: 100vh;
+    width: calc(100% - 300px);
+    position: relative;
+}

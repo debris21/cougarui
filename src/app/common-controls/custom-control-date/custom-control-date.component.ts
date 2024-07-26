@@ -3,8 +3,7 @@ import { customcontroldate } from "./custom-control-date.control";
 
 @Component({
     selector: 'app-custom-control-date',
-    templateUrl: './custom-control-date.component.html',
-    styleUrls : ['../shared/shared.style.css']
+    templateUrl: './custom-control-date.component.html'
 })
 export class customdatecontrol {
     @Input() formContr : customcontroldate;
