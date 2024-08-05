@@ -217,7 +217,7 @@ export class FrameConfigComponent implements OnInit {
   changeText(text: any) {
     const inputElement = text.target as HTMLInputElement;
     const searchText = inputElement.value;
-    const filteredList = this.matIcons?.filter((r : MaterialIconDTO) => r.iconTag?.includes(searchText));
+    const filteredList = this.matIcons?.filter((r : any) => r.iconTag?.includes(searchText));
     this.matIconsList = this.paginate(filteredList, 10, 1);
   }
 }
