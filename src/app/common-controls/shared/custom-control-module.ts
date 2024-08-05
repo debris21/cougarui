@@ -10,6 +10,8 @@ import { navsComponent } from 'src/app/master-root/navs/navs.component';
 import { customdatecontrol } from '../custom-control-date/custom-control-date.component';
 import { CustomDialogMessageComponent, CustomDialogService } from '../costum-dialog-message/costum-dialog-message.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -26,7 +28,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatDialogModule,
     ReactiveFormsModule,
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule,
+    MatTableModule
   ],
   exports : [customcontrolComponent,
     customtextcontrol,

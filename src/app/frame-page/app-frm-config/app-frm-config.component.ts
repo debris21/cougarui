@@ -62,6 +62,7 @@ export class FrameConfigComponent implements OnInit {
   }
 
   matIcons : any
+  matIconsList : any
   getMatIcons(){
     this.err = undefined
     this.bfm = {
@@ -74,6 +75,7 @@ export class FrameConfigComponent implements OnInit {
     this.fs.getBehaviorFrame(this.bfm, 'cougarapi', 'getmaticon').subscribe(ack =>{
       console.log(ack)
       this.matIcons = ack;
+      this.matIconsList = this.paginate(this.matIcons, 10, 1);
     },
     error => {
       this.err = error
@@ -180,6 +182,43 @@ export class FrameConfigComponent implements OnInit {
   }
   getKeyDate(key : any){
     console.log(key)
+  }
+  
+  length = 10;
+  pageSize = 10;
+  pageIndex = 0;
+  pageSizeOptions = [5, 10, 25];
+
+  hidePageSize = false;
+  showPageSizeOptions = true;
+  showFirstLastButtons = true;
+  disabled = false;
+
+  pageEvent?: PageEvent;
+
+  handlePageEvent(e: PageEvent) {
+    this.pageEvent = e;
+    this.length = e.length;
+    this.pageSize = e.pageSize;
+    this.pageIndex = e.pageIndex;
+    this.matIconsList = this.paginate(this.matIcons, this.pageSize, this.pageIndex);
+  }
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
+  }
+
+  paginate<T>(array: T[], pageSize: number, pageNumber: number): T[] {
+    const startIndex = (pageNumber - 1) * pageSize;
+    return array.slice(startIndex, startIndex + pageSize);
+  }
+  changeText(text: any) {
+    const inputElement = text.target as HTMLInputElement;
+    const searchText = inputElement.value;
+    const filteredList = this.matIcons?.filter((r : MaterialIconDTO) => r.iconTag?.includes(searchText));
+    this.matIconsList = this.paginate(filteredList, 10, 1);
   }
 }
 

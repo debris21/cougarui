@@ -85,14 +85,50 @@ section{
 .myclass {
     flex : 1
 }
+.table-top-header{
+    position: relative;
+    height: 45px;
+    background: linear-gradient(to right, #2563e7, #062c7c);
+    margin: 0 20px;
+    top: 30px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.table-top-header mat-icon{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    margin-right: 5px;
+    background: linear-gradient(to right, #afd9f5, #959699); /* Gradient colors */
+    -webkit-background-clip: text; /* Clip the background to the text (WebKit browsers) */
+    -moz-background-clip: text; /* Clip the background to the text (Mozilla browsers) */
+    background-clip: text; /* Clip the background to the text */
+    color: transparent;
+    font-size: 20px;
+}
 
-table{
+table {
     width: 100%;
+    margin-top: 20px;
+    max-height: 160px;
+    overflow: auto;
+    border-collapse: collapse; 
+}
+
+thead {
+    border-color: #000;
+    border-style: none none solid none;
+    border-width: 1px;
 }
 
 thead{
     padding: 5px;
-    background: #dada;
 }
 td{
     padding: 5px;
@@ -141,7 +177,8 @@ table tr th {
 
 .nav-body ~ .pages{
     left: 300px;
-    height: 100vh;
+    height: 100%;
     width: calc(100% - 300px);
     position: relative;
+    overflow-x: hidden;
 }
