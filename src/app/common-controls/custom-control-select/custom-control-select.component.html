@@ -1,7 +1,18 @@
 <app-abstract-custom-control [frmC]="formContr">
-    <select type="text" #input [formControl]="formContr" [ngClass]="{'error': formContr.touched && formContr.errors}">
-        <option [value]="a.key" *ngFor="let a of dDownList ">
-            {{a.value}}
-        </option>
-    </select>
+    <mat-form-field style="width: 100%;">
+        <mat-select [formControl]="formContr">
+          <mat-select-trigger>
+            <span *ngIf="formContr.value" class="example-additional-selection">
+              {{ selectedData}} 
+            </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let datum of dDownList" [value]="datum.key">
+            {{ datum.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 </app-abstract-custom-control>
+
+
+
+

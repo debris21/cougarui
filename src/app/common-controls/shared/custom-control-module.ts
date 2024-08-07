@@ -12,6 +12,8 @@ import { CustomDialogMessageComponent, CustomDialogService } from '../costum-dia
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -30,7 +32,9 @@ import {MatTableModule} from '@angular/material/table';
     CommonModule,
     MatIconModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule,
+    MatFormFieldModule,
   ],
   exports : [customcontrolComponent,
     customtextcontrol,

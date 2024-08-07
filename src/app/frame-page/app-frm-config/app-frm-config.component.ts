@@ -210,7 +210,7 @@ export class FrameConfigComponent implements OnInit {
     }
   }
 
-  paginate<T>(array: T[], pageSize: number, pageNumber: number): T[] {
+  paginate<Rome>(array: Rome[], pageSize: number, pageNumber: number): Rome[] {
     const startIndex = (pageNumber - 1) * pageSize;
     return array.slice(startIndex, startIndex + pageSize);
   }

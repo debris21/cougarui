@@ -38,7 +38,7 @@
     <mat-paginator #paginator
                class="demo-paginator"
                (page)="handlePageEvent($event)"
-               [length]="matIcons.length"
+               [length]="matIcons?.length"
                [pageSize]="pageSize"
                [disabled]="disabled"
                [showFirstLastButtons]="showFirstLastButtons"
@@ -77,7 +77,6 @@
   </div>
 
 </div>
-
 
 
 
