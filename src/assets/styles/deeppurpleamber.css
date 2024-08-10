@@ -523,7 +523,8 @@ input.mat-input-element{
     opacity:.6
 }
 .cdk-overlay-dark-backdrop{
-    background:rgba(0,0,0,.32)
+    background:rgba(0,0,0,.32);
+    backdrop-filter: blur(5px);
 }
 .cdk-overlay-transparent-backdrop,.cdk-overlay-transparent-backdrop.cdk-overlay-backdrop-showing{
     opacity:0
