@@ -135,7 +135,7 @@ thead{
 td{
     padding: 5px;
 }
-tr:hover{
+tbody tr:hover{
     background: #dada;
 }
 tr.selected{

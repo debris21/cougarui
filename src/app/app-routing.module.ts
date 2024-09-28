@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'basic-info', loadChildren: () => import('./frame-page/basic-info/basic-info.module').then((m) => m.BasicInfoModule) },
   { path: 'frame-config', loadChildren: () => import('./frame-page/app-frm-config/app-frm-config.module').then((m) => m.FrameConfigModule) },
   { path: 'settings', loadChildren: () => import('./frame-page/settings/settings.module').then((m) => m.SettingsModule) },
+  { path: 'user-account', loadChildren: () => import('./frame-page/app-user-account-info/user-account-info.module').then((m) => m.UserAccountInfoModule) },
 ];
 
 @NgModule({
