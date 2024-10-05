@@ -13,6 +13,7 @@ import { NotifComponent } from './master-root/ahead/notif/notif.component';
 import { UserInfoComponent } from './master-root/ahead/user-info/user-info.component';
 import { NotFoundComponent } from './generic/not-found/not-found.component';
 import { customControlModule } from './common-controls/shared/custom-control-module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { customControlModule } from './common-controls/shared/custom-control-mod
     MatTreeModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    customControlModule
+    customControlModule,
+    RouterModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

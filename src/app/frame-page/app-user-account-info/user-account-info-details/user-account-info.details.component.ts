@@ -4,8 +4,7 @@ import { ApproachpartService } from "src/services/approachpart.service";
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { KeyValue } from "@angular/common";
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
-import { CustomDialogMessageComponent, CustomDialogService } from "src/app/common-controls/costum-dialog-message/costum-dialog-message.component";
-import { config, take } from "rxjs";
+import { CustomDialogService } from "src/app/common-controls/costum-dialog-message/costum-dialog-message.component";
 
 @Component({
     selector : 'app-frm-config-detail',
